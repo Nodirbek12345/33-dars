@@ -4,8 +4,8 @@ import "./globals.css";
 import QueryProvider from "./provider";
 
 const roboto = Roboto({
-  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${roboto.className} antialiased`}>
