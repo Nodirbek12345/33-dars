@@ -27,7 +27,7 @@ body {
 .active {
   text-decoration: underline;
 }
-@layer components {
+.components {
   .container {
     @apply max-w-[1270px] w-full mx-auto px-5;
   }
