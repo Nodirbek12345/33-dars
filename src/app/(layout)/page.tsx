@@ -1,20 +1,20 @@
-import ProductView from '@/components/product-view/ProductView';
-import { memo } from 'react';
+import { BASE_URL } from "@/shared/api";
+import Hero from "@/shared/components/hero/Hero";
+import ProductView from "@/shared/components/product-view/ProductView";
+import { memo } from "react";
 
-const Home = async() => {
-  const response = await fetch("https://api.errorchi.uz/product?limit=8",{next:{revalidate:60}})
-  const data = await response.json()
-  console.log(data);
-  
-  
+const HomePage = async () => {
+  const response = await fetch(BASE_URL + "?limit=8", {
+    next: { revalidate: 300 },
+  });
+  const data = await response.json();
+
   return (
-    <div className="container mx-auto">
-      {/* <Hero/> */}
-      <ProductView data={data?.data?.allProducts}/>
-      {/* <Testimonials/>
-      <Service/> */}
-    </div>
+    <>
+      <Hero />
+      <ProductView data={data?.data.allProducts} />
+    </>
   );
 };
 
-export default memo(Home);
+export default memo(HomePage);

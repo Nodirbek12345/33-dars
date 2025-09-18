@@ -1,15 +1,14 @@
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
-import { memo, ReactNode } from "react";
+import Footer from "@/shared/components/footer/Footer";
+import Header from "@/shared/components/header/Header";
+// import ScrollUp from "@/shared/components/scroll-up/scroll-up";
+import { ReactNode } from "react";
 
-const Layout = ({ children }: { children: ReactNode }) => {
+export default function MainLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="Layout">
+    <>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
-    </div>
+    </>
   );
-};
-
-export default memo(Layout);
+}
